@@ -17,5 +17,5 @@ interface ChocoDataDao {
     fun get(names: List<String>): Single<List<ChocoDataEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(vararg chocoData: ChocoDataEntity)
+    fun insertAll(vararg chocoData: ChocoDataEntity)
 }

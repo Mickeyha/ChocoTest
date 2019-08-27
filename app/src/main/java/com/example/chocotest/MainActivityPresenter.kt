@@ -8,6 +8,7 @@ import io.reactivex.schedulers.Schedulers
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
 
 class MainActivityPresenter : KoinComponent {
 
@@ -18,8 +19,16 @@ class MainActivityPresenter : KoinComponent {
     @SuppressLint("CheckResult")
     fun create() {
         Timber.d("create()")
+        compositeDisposable.add(repository.syncDrama()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .timeout(15, TimeUnit.SECONDS)
+            .subscribe({ Timber.d("success to sync message list ")}, { throwable ->
+                Timber.w(throwable, "fail to sync message list")})
+        )
 
-        repository.getDrama()
+
+        compositeDisposable.add(repository.getDrama()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { Timber.d("aaa") }
@@ -29,9 +38,9 @@ class MainActivityPresenter : KoinComponent {
             },{throwable ->
                 Timber.w(throwable, "fail to get message list")
 
-            })
+            }))
     }
-    
+
     fun destroy() {
         Timber.d("destroy()")
         if (!compositeDisposable.isDisposed) {
