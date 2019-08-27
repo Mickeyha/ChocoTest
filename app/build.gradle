@@ -118,6 +118,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-compiler:$room_version"
     implementation "android.arch.persistence.room:rxjava2:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
 
     // epoxy
     implementation "com.airbnb.android:epoxy:$epoxy_version"

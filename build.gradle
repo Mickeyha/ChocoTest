@@ -41,6 +41,6 @@ ext {
     rx_adapter_version = "2.6.0"
     timber_version = "4.7.1"
     rx_kotlin_version = "2.3.0"
-    room_version = "2.1.0"
+    room_version = "2.1.0-alpha06"
     epoxy_version="3.7.0"
 }

@@ -5,16 +5,17 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.chocotest.db.entity.ChocoDataEntity
+import io.reactivex.Observable
 import io.reactivex.Single
 
 @Dao
 interface ChocoDataDao {
     @Query("SELECT * FROM `ChocoDataEntity`")
-    fun getAll(): Single<List<ChocoDataEntity>>
+    fun getAll(): Observable<List<ChocoDataEntity>>
 
     @Query("SELECT * FROM `ChocoDataEntity` where name IN (:names)")
-    fun get(names: List<Int>): Single<List<ChocoDataEntity>>
+    fun get(names: List<String>): Single<List<ChocoDataEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg chocoData: ChocoDataEntity)
+    fun insert(vararg chocoData: ChocoDataEntity)
 }

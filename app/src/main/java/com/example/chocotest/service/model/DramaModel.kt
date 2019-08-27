@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class DramaModel (
     @SerializedName("data")
-    var data: List<ChocoDataEntity>?
+    var data: List<ChocoDataEntity> = emptyList()
 )
