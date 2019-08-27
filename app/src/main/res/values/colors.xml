@@ -3,4 +3,14 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!--main page-->
+    <color name="colorSeparator">#e0e0e0</color>
+    <color name="colorSearch">#eeeeee</color>
+
+    <!--user info item-->
+    <color name="colorLoginText">#1f1f1f</color>
+    <color name="colorBadgeText">#ffffff</color>
+    <color name="colorBadgeBackground">#3971D5</color>
+
 </resources>

@@ -1,10 +1,11 @@
-package com.example.chocotest.entity
+package com.example.chocotest.db.entity
 
 import androidx.room.ColumnInfo
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-
+@Entity
 data class ChocoDataEntity (
     @SerializedName("drama_id")
     @field:[PrimaryKey(autoGenerate = false) ColumnInfo(name = "drama_id")]

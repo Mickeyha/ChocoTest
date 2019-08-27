@@ -1,9 +1,8 @@
 package com.example.chocotest.service
 
-import com.example.chocotest.entity.ChocoDataEntity
+import com.example.chocotest.service.model.DramaModel
 import io.reactivex.Single
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 interface ChocoService {
     companion object {
@@ -11,5 +10,5 @@ interface ChocoService {
     }
 
     @GET
-    fun getData() : Single<ChocoDataEntity>
+    fun getData() : Single<DramaModel>
 }
