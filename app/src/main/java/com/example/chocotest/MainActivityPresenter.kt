@@ -20,7 +20,7 @@ class MainActivityPresenter(val view: MainActivity) : KoinComponent {
 
     fun create() {
         compositeDisposable +=
-            repository.syncDrama()
+            repository.getDrama()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .timeout(15, TimeUnit.SECONDS)

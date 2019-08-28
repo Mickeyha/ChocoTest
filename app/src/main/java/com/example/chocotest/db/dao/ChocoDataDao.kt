@@ -11,7 +11,7 @@ import io.reactivex.Single
 @Dao
 interface ChocoDataDao {
     @Query("SELECT * FROM `ChocoDataEntity`")
-    fun getAll(): Observable<List<ChocoDataEntity>>
+    fun getAll(): Single<List<ChocoDataEntity>>
 
     @Query("SELECT * FROM `ChocoDataEntity` where name IN (:names)")
     fun get(names: List<String>): Single<List<ChocoDataEntity>>

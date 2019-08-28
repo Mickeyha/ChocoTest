@@ -15,7 +15,7 @@ class ChocoDataRepository : KoinComponent {
     private val database: ChocoDatabase by inject()
 
     fun syncDrama(): Single<List<ChocoDataEntity>> =
-        Single.zip(database.getChocoDataDao().getAll().firstOrError(),
+        Single.zip(database.getChocoDataDao().getAll(),
             service.getData(ChocoService.CHOCO_DATA_URL).map { it.data },
             BiFunction<List<ChocoDataEntity>, List<ChocoDataEntity>, List<ChocoDataEntity>> { databaseList, serverList ->
                 val missList = serverList.filterNot { serverData ->
@@ -24,22 +24,15 @@ class ChocoDataRepository : KoinComponent {
                 if (!missList.isNullOrEmpty()) {
                     database.getChocoDataDao().insertAll(*missList.toTypedArray())
                 }
-                if (serverList.isNotEmpty()) serverList
-                else databaseList
+                serverList
             })
 
 
     fun getDrama(): Single<List<ChocoDataEntity>> =
-        database.getChocoDataDao().getAll()
+        Single.concat(
+            database.getChocoDataDao().getAll().doOnSuccess { Timber.d("Load data from db success.") },
+            syncDrama().doOnSuccess { Timber.d("Load data from remote success.") }
+        )
+            .filter { return@filter it.isNotEmpty() }
             .firstOrError()
-            .doOnSubscribe { Timber.v("start getDrama from db.") }
-            .doOnSuccess { Timber.v("get dramas from db success.") }
-            .doOnError { throwable ->
-                Timber.e(throwable, "failed to load data from local. Start getting dramas from server.")
-            }
-            .onErrorReturnItem(ArrayList<ChocoDataEntity>().apply {
-                add(ChocoDataEntity(id = 0, name = "", totalViews = 0, createdAt = "", thumb = "", rating = 0.0f))
-            })
-
-
 }
