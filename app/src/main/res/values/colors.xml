@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#fefefe</color>
+    <color name="colorPrimaryDark">#008374</color>
+    <color name="colorAccent">#89ba16</color>
 
     <!--main page-->
     <color name="colorSeparator">#e0e0e0</color>
     <color name="colorSearch">#eeeeee</color>
 
-    <!--user info item-->
-    <color name="colorLoginText">#1f1f1f</color>
+    <!--drama info item-->
+    <color name="colorDramaText">#1f1f1f</color>
     <color name="colorBadgeText">#ffffff</color>
     <color name="colorBadgeBackground">#3971D5</color>
 

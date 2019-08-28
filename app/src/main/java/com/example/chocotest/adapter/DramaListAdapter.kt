@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.chocotest.R
 import com.example.chocotest.db.entity.ChocoDataEntity
+import com.example.chocotest.view.DramaRateView
 import kotlinx.android.synthetic.main.item_drama_info.view.*
 import timber.log.Timber
 
@@ -57,7 +58,7 @@ class DramaListAdapter(private val dramaList: List<ChocoDataEntity>) : RecyclerV
         holder.dramaName.text = chocoDataEntity.name
 
         // drama rate
-        holder.dramaRate.text = chocoDataEntity.rating.toString()
+        holder.dramaRate.setRate(chocoDataEntity.rating)
     }
 
 
@@ -65,6 +66,6 @@ class DramaListAdapter(private val dramaList: List<ChocoDataEntity>) : RecyclerV
         val cardView : CardView =  view.view_card
         val dramaName : TextView =  view.text_drama_name
         val dramaPic : ImageView =  view.pic_drama
-        val dramaRate : TextView = view.text_rate
+        val dramaRate : DramaRateView = view.text_rate
     }
 }
