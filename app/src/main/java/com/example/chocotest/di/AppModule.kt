@@ -27,12 +27,6 @@ val repositoryModule = module {
     }
 }
 
-val presenterModule = module {
-    factory {
-        MainActivityPresenter()
-    }
-}
-
 val networkModule = module {
     single { generateOkHttpClient() }
     single { generateRetrofit(get()) }
@@ -59,6 +53,5 @@ fun generateChocoService(retrofit: Retrofit): ChocoService =
 val appModule = listOf(
     chocoDatabaseModule,
     repositoryModule,
-    presenterModule,
     networkModule
 )
