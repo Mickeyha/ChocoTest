@@ -24,6 +24,8 @@ class MainActivityPresenter(val view: MainActivity) : KoinComponent {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .timeout(15, TimeUnit.SECONDS)
+                .doOnSubscribe { view.render(MainActivityState.StartLoading) }
+                .doOnSuccess { view.render(MainActivityState.FinishLoading) }
                 .subscribe({
                     Timber.d("success to sync drama list ")
                     view.render(MainActivityState.ShowDramaList(it))

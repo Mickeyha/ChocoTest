@@ -24,7 +24,8 @@ class ChocoDataRepository : KoinComponent {
                 if (!missList.isNullOrEmpty()) {
                     database.getChocoDataDao().insertAll(*missList.toTypedArray())
                 }
-                missList
+                if (serverList.isNotEmpty()) serverList
+                else databaseList
             })
 
 
