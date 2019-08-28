@@ -15,12 +15,13 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.chocotest.R
 import com.example.chocotest.db.entity.ChocoDataEntity
 import com.example.chocotest.view.DramaRateView
+import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.item_drama_info.view.*
 import timber.log.Timber
 
 class DramaListAdapter(private val dramaList: List<ChocoDataEntity>) : RecyclerView.Adapter<DramaListAdapter.Holder>() {
 
-    var onClick = MutableLiveData<ChocoDataEntity>()
+    lateinit var onClick : PublishSubject<ChocoDataEntity>
 
     override fun getItemCount(): Int = dramaList.size
 
@@ -45,7 +46,7 @@ class DramaListAdapter(private val dramaList: List<ChocoDataEntity>) : RecyclerV
         holder.cardView.setOnClickListener {
             // fire recyclerView click event
             Timber.d("Mickey, OnCLick")
-            onClick.value = chocoDataEntity
+            onClick.onNext(chocoDataEntity)
         }
 
         // drama thumb

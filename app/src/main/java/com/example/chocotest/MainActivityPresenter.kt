@@ -31,6 +31,11 @@ class MainActivityPresenter(val view: MainActivity) : KoinComponent {
                     view.render(MainActivityState.ShowDramaList(it))
                 }, { throwable ->
                     Timber.w(throwable, "fail to sync drama list")})
+
+        compositeDisposable +=
+                view.onDramaItemClicked.subscribe {
+                    view.render(MainActivityState.ShowPopupDialog(it))
+                }
     }
 
     fun destroy() {

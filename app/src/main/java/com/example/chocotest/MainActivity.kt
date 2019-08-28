@@ -17,7 +17,7 @@ import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
-    internal lateinit var onDramaItemClicked: PublishSubject<ChocoDataEntity>
+    val onDramaItemClicked = PublishSubject.create<ChocoDataEntity>()
     private val presenter: MainActivityPresenter = MainActivityPresenter(this)
     private lateinit var dramaListAdapter : DramaListAdapter
 
@@ -49,16 +49,12 @@ class MainActivity : AppCompatActivity() {
                 recyclerView.visibility = View.VISIBLE
 
                 dramaListAdapter = DramaListAdapter(state.dramas)
+                dramaListAdapter.onClick = onDramaItemClicked
                 recyclerView.apply {
                     layoutManager =
                         LinearLayoutManager(context,  RecyclerView.VERTICAL, false)
                     adapter = dramaListAdapter
                 }
-            }
-            is MainActivityState.OnClick -> {
-                Timber.d("MainActivityState: OnClick ")
-
-
             }
             is MainActivityState.ShowPopupDialog -> {
                 Timber.d("MainActivityState: ShowPopupDialog")
