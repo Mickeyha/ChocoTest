@@ -3,11 +3,8 @@ package com.example.chocotest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.example.chocotest.db.entity.ChocoDataEntity
 import io.reactivex.subjects.PublishSubject
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chocotest.adapter.DramaListAdapter
