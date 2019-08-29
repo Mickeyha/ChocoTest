@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.example.chocotest.R
 
-import kotlinx.android.synthetic.main.view_user_blog.view.*
+import kotlinx.android.synthetic.main.view_drama_total_views.view.*
 
 class UserDetailBlogView @JvmOverloads constructor(
     context: Context,
@@ -18,7 +18,7 @@ class UserDetailBlogView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attributeSet, defStyleAttr) {
 
     init {
-        LayoutInflater.from(this@UserDetailBlogView.context).inflate(R.layout.view_user_blog, this, true)
+        LayoutInflater.from(this@UserDetailBlogView.context).inflate(R.layout.view_drama_total_views, this, true)
     }
 
     fun setData(blogUrl: String?) {

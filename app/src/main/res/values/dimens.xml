@@ -2,7 +2,8 @@
 <resources>
     <dimen name="main_view_search_margin">10dp</dimen>
     <dimen name="main_view_search_padding">3dp</dimen>
-    <dimen name="view_user_info_guide_line_horizontal_margin">14dp</dimen>
+    <dimen name="view_user_info_guide_line_horizontal_margin_left">14dp</dimen>
+    <dimen name="view_user_info_guide_line_horizontal_margin_right">50dp</dimen>
     <dimen name="view_user_info_guide_line_vertical_margin">12dp</dimen>
     <dimen name="view_user_info_pic_text_margin">20dp</dimen>
 </resources>

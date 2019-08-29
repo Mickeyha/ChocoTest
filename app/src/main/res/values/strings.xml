@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ChocoTest</string>
     <string name="main_page_search">Search</string>
+
+    <string name="detail_rating">Rating</string>
+    <string name="detail_total_views">Total views</string>
+    <string name="detail_created_at">Created at</string>
 </resources>

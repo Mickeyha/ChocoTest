@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.example.chocotest.R
 
-import kotlinx.android.synthetic.main.view_user_location.view.*
+import kotlinx.android.synthetic.main.view_drama_detail_created_at.view.*
 
 class UserDetailLocationView @JvmOverloads constructor (
     context: Context,
@@ -18,7 +18,7 @@ class UserDetailLocationView @JvmOverloads constructor (
 ) : ConstraintLayout(context, attributeSet, defStyleAttr) {
 
     init {
-        LayoutInflater.from(this@UserDetailLocationView.context).inflate(R.layout.view_user_location, this, true)
+        LayoutInflater.from(this@UserDetailLocationView.context).inflate(R.layout.view_drama_detail_created_at, this, true)
     }
 
     fun setData(location: String?) {

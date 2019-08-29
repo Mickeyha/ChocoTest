@@ -20,14 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/view_user_info_guide_line_horizontal_margin"/>
+            app:layout_constraintGuide_begin="@dimen/view_user_info_guide_line_horizontal_margin_left"/>
 
     <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_line_right"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/view_user_info_guide_line_horizontal_margin"/>
+            app:layout_constraintGuide_end="@dimen/view_user_info_guide_line_horizontal_margin_right"/>
 
     <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_line_bottom"
@@ -49,11 +49,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:textColorLink="@color/colorUserDetailLink"
-            android:layout_marginStart="@dimen/view_user_info_pic_text_margin"
-            app:layout_constraintStart_toEndOf="@id/image_blog"
+            android:textColor="@color/colorLoginText"
+            app:layout_constraintEnd_toEndOf="@id/guide_line_right"
             app:layout_constraintTop_toTopOf="@id/image_blog"
             app:layout_constraintBottom_toBottomOf="@id/image_blog"
-            tools:text="http://chriswansrath.com/"/>
+            tools:text="23562274"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginStart="@dimen/view_user_info_pic_text_margin"
+            android:text="@string/detail_total_views"
+            app:layout_constraintStart_toEndOf="@id/image_blog"
+            app:layout_constraintTop_toTopOf="@id/image_blog"
+            app:layout_constraintBottom_toBottomOf="@id/image_blog"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

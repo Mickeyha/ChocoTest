@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.example.chocotest.R
-import kotlinx.android.synthetic.main.view_user_info.view.*
+import kotlinx.android.synthetic.main.view_drama_detail_rating.view.*
 
 class UserDetailInfoView @JvmOverloads constructor (
     context: Context,
@@ -17,7 +17,7 @@ class UserDetailInfoView @JvmOverloads constructor (
 ): ConstraintLayout(context, attributeSet, defStyleAttr) {
 
     init {
-        LayoutInflater.from(this@UserDetailInfoView.context).inflate(R.layout.view_user_info, this, true)
+        LayoutInflater.from(this@UserDetailInfoView.context).inflate(R.layout.view_drama_detail_rating, this, true)
     }
 
     fun setData(login: String?) {
