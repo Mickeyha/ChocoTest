@@ -14,12 +14,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.chocotest.R
 import com.example.chocotest.db.entity.ChocoDataEntity
+import com.example.chocotest.util.TimeUtil
+import com.example.chocotest.util.TimeUtil.Companion.SIMPLE_DATE_FORMAT_YY_MM_DD
 import com.example.chocotest.view.DramaRateView
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.item_drama_info.view.*
 import timber.log.Timber
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class DramaListAdapter(private val dramaList: List<ChocoDataEntity>) : RecyclerView.Adapter<DramaListAdapter.Holder>() {
@@ -66,16 +66,9 @@ class DramaListAdapter(private val dramaList: List<ChocoDataEntity>) : RecyclerV
         holder.dramaRate.setRate(chocoDataEntity.rating)
 
         // drama created at
-        // TODO add time util
-        val format = SimpleDateFormat(
-            "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.TAIWAN
-        )
-        format.timeZone = TimeZone.getTimeZone("UTC")
-        val date: Date = format.parse(chocoDataEntity.createdAt)
-        val calendar: Calendar = Calendar.getInstance()
-        calendar.time = date
-        val newFormat = SimpleDateFormat("yyyy-MM-dd")
-        holder.dramaCreatedAt.text = newFormat.format(calendar.time).toString()
+        holder.dramaCreatedAt.text =
+            TimeUtil.INSTANCE
+                .transferToNewFormat(chocoDataEntity.createdAt, SIMPLE_DATE_FORMAT_YY_MM_DD)
     }
 
 
